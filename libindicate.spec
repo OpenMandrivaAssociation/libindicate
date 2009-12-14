@@ -1,6 +1,6 @@
 %define name libindicate
 %define version 0.2.3
-%define release %mkrel 1
+%define release %mkrel 2
 %define summary Library for applications to raise flags on DBus
 %define major 3
 %define major_gtk 1
@@ -32,8 +32,6 @@ BuildRequires:	pkgconfig
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
-
-#--------------------------------------------------------------------
 
 %package -n	%{libname}
 Summary:	Library for applications to raise flags on DBus
