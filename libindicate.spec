@@ -31,6 +31,8 @@ A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
+#--------------------------------------------------------------------
+
 %package -n	%{libname}
 Summary:	Library for applications to raise flags on DBus
 Group:		System/Libraries
