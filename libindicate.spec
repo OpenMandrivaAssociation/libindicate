@@ -13,6 +13,8 @@ Name:		%name
 Version:	%version
 Release:	%release
 Source0:	http://launchpad.net/%{name}/0.2/%{version}/+download/%{name}-%{version}.tar.gz
+#Add patch0 to disable building of files provided in examples & tests folder
+Patch0:		libindicate-0.2.3-mdv-disable-build-of-tests-examples.patch
 License:	LGPLv3
 Group:		System/Libraries
 URL:		https://launchpad.net/libindicate
@@ -44,32 +46,8 @@ the messaging indicator.
 
 %files -n	%{libname}
 %defattr(-,root,root)
-%doc AUTHORS COPYING COPYING.LGPL.2.1
-%{_libdir}/im-client
-%{_libdir}/indicate-alot
-%{_libdir}/indicate-and-crash
 %{_libdir}/libindicate.so.3
 %{_libdir}/libindicate.so.3.0.2
-%{_libdir}/listen-and-print
-%{_libdir}/show-hide-server
-%{_libdir}/test-indicator-display-client
-%{_libdir}/test-indicator-display-half-client
-%{_libdir}/test-indicator-display-half-server
-%{_libdir}/test-indicator-display-server
-%{_libdir}/test-interests-client
-%{_libdir}/test-interests-server
-%{_libdir}/test-interests-server1
-%{_libdir}/test-interests-server2
-%{_libdir}/test-interests-server3
-%{_libdir}/test-interests-server4
-%{_libdir}/test-interests-server5
-%{_libdir}/test-max-indicators-client
-%{_libdir}/test-max-indicators-server
-%{_libdir}/test-max-indicators-server-repeat
-%{_libdir}/test-simple-client
-%{_libdir}/test-simple-server
-%{_libdir}/test-thousand-indicators-client
-%{_libdir}/test-thousand-indicators-server
 
 #-----------------------------------------------------------------------
 
@@ -86,6 +64,7 @@ the messaging indicator.
 %defattr(-,root,root)
 %{_libdir}/libindicate-gtk.so.1 
 %{_libdir}/libindicate-gtk.so.1.0.0 
+
 #-----------------------------------------------------------------------
 
 %package -n	%{develname}
@@ -122,6 +101,7 @@ This package provides documentation files for %{name}
 
 %files doc
 %defattr(-,root,root)
+%doc AUTHORS COPYING COPYING.LGPL.2.1
 %{_defaultdocdir}/%{name}/
 %{_datadir}/gtk-doc/html/%{name}
 
@@ -129,14 +109,19 @@ This package provides documentation files for %{name}
 
 %prep
 %setup -q 
+%patch0 -p0
 
 %build
-%configure2_5x
+%configure2_5x 
 %make
 
 %install
 %__rm -rf %{buildroot}
 %makeinstall
+# Copying examples & test files to doc dire
+mkdir -p %{buildroot}/%{_defaultdocdir}/%{name}/
+%__cp -fr examples %{buildroot}/%{_defaultdocdir}/%{name}/
+%__cp -fr tests %{buildroot}/%{_defaultdocdir}/%{name}/
 
 %clean
 %__rm -rf %{buildroot}
