@@ -1,12 +1,13 @@
 %define name libindicate
 %define version 0.2.3
-%define release %mkrel 2
+%define release %mkrel 3
 %define summary Library for applications to raise flags on DBus
 %define major 3
 %define major_gtk 1
 %define libname %mklibname indicate %{major}
 %define gtklibname  %mklibname indicate %{major_gtk}-gtk
 %define develname %mklibname indicate -d
+%define gtkdevelname %mklibname indicate-gtk -d
 
 Summary:	%summary
 Name:		%name
@@ -77,15 +78,33 @@ to incorporate %{name} into applications.
 
 %files -n	%{develname}
 %defattr(-,root,root)
-%{_includedir}/%{name}-0.2/
+%{_includedir}/%{name}-0.2/libindicate
 %{_libdir}/libindicate.so
 %{_libdir}/libindicate.a
 %{_libdir}/libindicate.la  
+%{_libdir}/pkgconfig/indicate.pc
+
+#------------------------------------------------------------------------
+
+%package -n     %{gtkdevelname}
+Summary:	Library headers for %{name}
+Group:		Development/C
+Requires:	%{gtklibname} = %{version}
+Requires:	%{develname} = %{version}
+Provides:	%{name}-gtk-devel = %{version}-%{release}
+Conflicts:	 %{develname} < 0.2.3-3
+
+%description -n %{gtkdevelname}
+This is the libraries, include files and other resources you can use
+to incorporate %{name} into applications.
+
+%files -n       %{gtkdevelname}
+%defattr(-,root,root)
+%{_includedir}/%{name}-0.2/libindicate-gtk/
 %{_libdir}/libindicate-gtk.so
 %{_libdir}/libindicate-gtk.a
 %{_libdir}/libindicate-gtk.la
 %{_libdir}/pkgconfig/indicate-gtk.pc
-%{_libdir}/pkgconfig/indicate.pc
 
 #-----------------------------------------------------------------------
 
