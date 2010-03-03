@@ -1,9 +1,9 @@
 %define name libindicate
-%define version 0.2.3
-%define release %mkrel 3
+%define version 0.3.4
+%define release %mkrel 1
 %define summary Library for applications to raise flags on DBus
-%define major 3
-%define major_gtk 1
+%define major 4
+%define major_gtk 2
 %define libname %mklibname indicate %{major}
 %define gtklibname  %mklibname indicate %{major_gtk}-gtk
 %define develname %mklibname indicate -d
@@ -13,7 +13,7 @@ Summary:	%summary
 Name:		%name
 Version:	%version
 Release:	%release
-Source0:	http://launchpad.net/%{name}/0.2/%{version}/+download/%{name}-%{version}.tar.gz
+Source0:	http://launchpad.net/%{name}/0.3/%{version}/+download/%{name}-%{version}.tar.gz
 #Add patch0 to disable building of files provided in examples & tests folder
 Patch0:		libindicate-0.2.3-mdv-disable-build-of-tests-examples.patch
 License:	LGPLv3
@@ -45,8 +45,8 @@ the messaging indicator.
 
 %files -n	%{libname}
 %defattr(-,root,root)
-%{_libdir}/libindicate.so.3
-%{_libdir}/libindicate.so.3.0.2
+%{_libdir}/libindicate.so.%{major}*
+
 
 #-----------------------------------------------------------------------
 
@@ -61,8 +61,8 @@ the messaging indicator.
 
 %files -n	%{gtklibname}
 %defattr(-,root,root)
-%{_libdir}/libindicate-gtk.so.1 
-%{_libdir}/libindicate-gtk.so.1.0.0 
+%{_libdir}/libindicate-gtk.so.%{major_gtk}* 
+
 
 #-----------------------------------------------------------------------
 
