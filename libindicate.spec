@@ -1,5 +1,5 @@
 %define name libindicate
-%define version 0.3.4
+%define version 0.3.6
 %define release %mkrel 1
 %define summary Library for applications to raise flags on DBus
 %define major 4
