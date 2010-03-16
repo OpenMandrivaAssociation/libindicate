@@ -22,6 +22,7 @@ URL:		https://launchpad.net/libindicate
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	glib2-devel
 BuildRequires:	dbus-glib-devel
+BuildRequires:	libdbusmenu-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	gtk+2-devel
