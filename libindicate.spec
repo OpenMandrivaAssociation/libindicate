@@ -24,6 +24,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	glib2-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	libdbusmenu-devel >= 0.3.8
+Buildrequires:	libdbusmenu-tools
 BuildRequires:	libxml2-devel
 BuildRequires:	libgdk_pixbuf2.0-devel
 BuildRequires:	gtk+2-devel
