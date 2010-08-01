@@ -1,11 +1,11 @@
 %define name libindicate
 %define version 0.4.1
-%define release %mkrel 1
+%define release %mkrel 2
 %define summary Library for applications to raise flags on DBus
 %define major 4
 %define major_gtk 2
 %define libname %mklibname indicate %{major}
-%define gtklibname  %mklibname indicate %{major_gtk}-gtk
+%define gtklibname  %mklibname indicate-gtk %{major_gtk}
 %define develname %mklibname indicate -d
 %define gtkdevelname %mklibname indicate-gtk -d
 
@@ -64,6 +64,7 @@ the messaging indicator.
 %package -n	%{gtklibname}
 Summary:	Library for applications to raise flags on DBus
 Group:		System/Libraries
+Obsoletes:	%{_lib}indicate2-gtk < 0.4.1-2
 
 %description -n	%{gtklibname}
 A small library for applications to raise "flags" on DBus for other
@@ -80,6 +81,7 @@ the messaging indicator.
 Summary:	Library for applications to raise flags on DBus
 Group:		Development/Other
 Provides:	mono-%{name} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 
 %description -n indicate-sharp
 A small library for applications to raise "flags" on DBus for other
@@ -99,6 +101,7 @@ the messaging indicator.
 Summary:	Library for applications to raise flags on DBus
 Group:		Development/Other
 Provides:	mono-%{name}-gtk = %{version}-%{release}
+Requires:	%{gtklibname} = %{version}-%{release}
 
 %description -n	indicate-gtk-sharp
 A small library for applications to raise "flags" on DBus for other
