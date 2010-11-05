@@ -150,9 +150,9 @@ to incorporate %{name} into applications.
 %{_libdir}/libindicate.a
 %{_libdir}/libindicate.la  
 %{_libdir}/pkgconfig/indicate.pc
-%{_libdir}/girepository-1.0/Indicate-0.2.typelib
-%{_datadir}/gir-1.0/Indicate-0.2.gir
-%{_datadir}/vala/vapi/Indicate-0.2.vapi
+#%{_libdir}/girepository-1.0/Indicate-0.2.typelib
+#%{_datadir}/gir-1.0/Indicate-0.2.gir
+#%{_datadir}/vala/vapi/Indicate-0.2.vapi
 
 #------------------------------------------------------------------------
 
@@ -175,9 +175,9 @@ to incorporate %{name} into applications.
 %{_libdir}/libindicate-gtk.a
 %{_libdir}/libindicate-gtk.la
 %{_libdir}/pkgconfig/indicate-gtk.pc
-%{_libdir}/girepository-1.0/Indicate-Gtk-0.2.typelib
-%{_datadir}/gir-1.0/Indicate-Gtk-0.2.gir
-%{_datadir}/vala/vapi/Indicate-Gtk-0.2.vapi
+#%{_libdir}/girepository-1.0/Indicate-Gtk-0.2.typelib
+#%{_datadir}/gir-1.0/Indicate-Gtk-0.2.gir
+#%{_datadir}/vala/vapi/Indicate-Gtk-0.2.vapi
 
 #-----------------------------------------------------------------------
 
@@ -204,7 +204,7 @@ This package provides documentation files for %{name}
 
 %build
 autoreconf -fi
-%configure2_5x 
+%configure2_5x --enable-introspection=no
 %make
 
 %install
