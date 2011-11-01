@@ -1,6 +1,6 @@
 %define name libindicate
 %define version 0.4.4
-%define release %mkrel 2
+%define release %mkrel 3
 %define summary Library for applications to raise flags on DBus
 %define major 4
 %define major_gtk 2
@@ -9,35 +9,35 @@
 %define develname %mklibname indicate -d
 %define gtkdevelname %mklibname indicate-gtk -d
 
-Summary:	%summary
-Name:		%name
-Version:	%version
-Release:	%release
-Source0:	http://launchpad.net/%{name}/0.3/%{version}/+download/%{name}-%{version}.tar.gz
+Summary:    %summary
+Name:       %name
+Version:    %version
+Release:    %release
+Source0:    http://launchpad.net/%{name}/0.3/%{version}/+download/%{name}-%{version}.tar.gz
 #Add patch0 to disable building of files provided in examples & tests folder
-Patch0:		libindicate-0.4.1-mdv-disable-build-of-tests-examples.patch
-Patch1:		libindicate-0.4.1-link.patch
-License:	LGPLv3
-Group:		System/Libraries
-URL:		https://launchpad.net/libindicate
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	glib2-devel
-BuildRequires:	dbus-glib-devel
-BuildRequires:	libdbusmenu-devel >= 0.3.8
-Buildrequires:	libdbusmenu-tools
-BuildRequires:	libxml2-devel
-BuildRequires:	libgdk_pixbuf2.0-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	vala-tools
-BuildRequires:	gobject-introspection-devel
-BuildRequires:	mono-devel
-BuildRequires:	python-devel
-BuildRequires:	pygtk2.0-devel
-BuildRequires:	gtk-sharp2
-BuildRequires:	gtk-sharp2-devel
-BuildRequires:	gtk-doc
-BuildRequires:	gnome-doc-utils
-BuildRequires:	pkgconfig
+Patch0:     libindicate-0.4.1-mdv-disable-build-of-tests-examples.patch
+Patch1:     libindicate-0.4.1-link.patch
+License:    LGPLv3
+Group:      System/Libraries
+URL:        https://launchpad.net/libindicate
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:  glib2-devel
+BuildRequires:  dbus-glib-devel
+BuildRequires:  libdbusmenu-devel >= 0.3.8
+Buildrequires:  libdbusmenu-tools
+BuildRequires:  libxml2-devel
+BuildRequires:  libgdk_pixbuf2.0-devel
+BuildRequires:  gtk+2-devel
+BuildRequires:  vala-tools
+BuildRequires:  gobject-introspection-devel
+BuildRequires:  mono-devel
+BuildRequires:  python-devel
+BuildRequires:  pygtk2.0-devel
+BuildRequires:  gtk-sharp2
+BuildRequires:  gtk-sharp2-devel
+BuildRequires:  gtk-doc
+BuildRequires:  gnome-doc-utils
+BuildRequires:  pkgconfig
 
 %description
 A small library for applications to raise "flags" on DBus for other
@@ -46,49 +46,49 @@ the messaging indicator.
 
 #-----------------------------------------------------------------------
 
-%package -n	%{libname}
-Summary:	Library for applications to raise flags on DBus
-Group:		System/Libraries
+%package -n %{libname}
+Summary:    Library for applications to raise flags on DBus
+Group:      System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
-%files -n	%{libname}
+%files -n   %{libname}
 %defattr(-,root,root)
 %{_libdir}/libindicate.so.%{major}*
 
 #-----------------------------------------------------------------------
 
-%package -n	%{gtklibname}
-Summary:	Library for applications to raise flags on DBus
-Group:		System/Libraries
-Obsoletes:	%{_lib}indicate2-gtk < 0.4.1-2
+%package -n %{gtklibname}
+Summary:    Library for applications to raise flags on DBus
+Group:      System/Libraries
+Obsoletes:  %{_lib}indicate2-gtk < 0.4.1-2
 
-%description -n	%{gtklibname}
+%description -n %{gtklibname}
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
-%files -n	%{gtklibname}
+%files -n   %{gtklibname}
 %defattr(-,root,root)
-%{_libdir}/libindicate-gtk.so.%{major_gtk}* 
+%{_libdir}/libindicate-gtk.so.%{major_gtk}*
 
 #-----------------------------------------------------------------------
 
-%package -n	indicate-sharp
-Summary:	Library for applications to raise flags on DBus
-Group:		Development/Other
-Provides:	mono-%{name} = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
+%package -n indicate-sharp
+Summary:    Library for applications to raise flags on DBus
+Group:      Development/Other
+Provides:   mono-%{name} = %{version}-%{release}
+Requires:   %{libname} = %{version}-%{release}
 
 %description -n indicate-sharp
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
-%files -n	indicate-sharp
+%files -n   indicate-sharp
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/indicate-sharp-0.1.pc
 %{_libdir}/indicate-sharp-0.1
@@ -97,18 +97,18 @@ the messaging indicator.
 
 #-----------------------------------------------------------------------
 
-%package -n	indicate-gtk-sharp
-Summary:	Library for applications to raise flags on DBus
-Group:		Development/Other
-Provides:	mono-%{name}-gtk = %{version}-%{release}
-Requires:	%{gtklibname} = %{version}-%{release}
+%package -n indicate-gtk-sharp
+Summary:    Library for applications to raise flags on DBus
+Group:      Development/Other
+Provides:   mono-%{name}-gtk = %{version}-%{release}
+Requires:   %{gtklibname} = %{version}-%{release}
 
-%description -n	indicate-gtk-sharp
+%description -n indicate-gtk-sharp
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
-%files -n	indicate-gtk-sharp
+%files -n   indicate-gtk-sharp
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/indicate-gtk-sharp-0.1.pc
 %{_libdir}/indicate-gtk-sharp-0.1
@@ -117,38 +117,38 @@ the messaging indicator.
 
 #-----------------------------------------------------------------------
 
-%package -n	python-%{name}
-Summary:	Library for applications to raise flags on DBus
-Group:		Development/Python
+%package -n python-%{name}
+Summary:    Library for applications to raise flags on DBus
+Group:      Development/Python
 
-%description -n	python-%{name}
+%description -n python-%{name}
 A small library for applications to raise "flags" on DBus for other
 components of the desktop to pick up and visualize. Currently used by
 the messaging indicator.
 
-%files -n	python-%{name}
+%files -n   python-%{name}
 %defattr(-,root,root)
 %{py_platsitedir}/indicate
 %{_datadir}/pygtk/2.0/defs/indicate.defs
 
 #-----------------------------------------------------------------------
 
-%package -n	%{develname}
-Summary:	Library headers for %{name}
-Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+%package -n %{develname}
+Summary:    Library headers for %{name}
+Group:      Development/C
+Requires:   %{libname} = %{version}
+Provides:   %{name}-devel = %{version}-%{release}
 
-%description -n	%{develname}
+%description -n %{develname}
 This is the libraries, include files and other resources you can use
 to incorporate %{name} into applications.
 
-%files -n	%{develname}
+%files -n   %{develname}
 %defattr(-,root,root)
 %{_includedir}/%{name}-0.2/libindicate
 %{_libdir}/libindicate.so
 %{_libdir}/libindicate.a
-%{_libdir}/libindicate.la  
+%{_libdir}/libindicate.la
 %{_libdir}/pkgconfig/indicate.pc
 #%{_libdir}/girepository-1.0/Indicate-0.2.typelib
 #%{_datadir}/gir-1.0/Indicate-0.2.gir
@@ -157,12 +157,12 @@ to incorporate %{name} into applications.
 #------------------------------------------------------------------------
 
 %package -n     %{gtkdevelname}
-Summary:	Library headers for %{name}
-Group:		Development/C
-Requires:	%{gtklibname} = %{version}
-Requires:	%{develname} = %{version}
-Provides:	%{name}-gtk-devel = %{version}-%{release}
-Conflicts:	 %{develname} < 0.2.3-3
+Summary:    Library headers for %{name}
+Group:      Development/C
+Requires:   %{gtklibname} = %{version}
+Requires:   %{develname} = %{version}
+Provides:   %{name}-gtk-devel = %{version}-%{release}
+Conflicts:   %{develname} < 0.2.3-3
 
 %description -n %{gtkdevelname}
 This is the libraries, include files and other resources you can use
@@ -182,9 +182,9 @@ to incorporate %{name} into applications.
 #-----------------------------------------------------------------------
 
 %package doc
-Summary:	Documentation for %{name} 
-Group:		Development/C
-Requires:	%{libname} = %{version}
+Summary:    Documentation for %{name}
+Group:      Development/C
+Requires:   %{libname} = %{version}
 
 %description doc
 This package provides documentation files for %{name}
