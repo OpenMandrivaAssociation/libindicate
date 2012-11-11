@@ -1,0 +1,11 @@
+--- configure.ac.link	2011-10-31 10:10:19.000000000 +0100
++++ configure.ac	2011-10-31 10:10:44.000000000 +0100
+@@ -203,7 +203,7 @@
+ )
+ 
+ # libpyglib-2.0-python* doesn't have a pkgconfig unfortunately
+-INDICATE_PYTHON_LIBS+=" -lpyglib-2.0-python$PYTHON_VERSION"
++INDICATE_PYTHON_LIBS+=" -lpyglib-2.0-python"
+ 
+ AC_SUBST(INDICATE_PYTHON_CFLAGS)
+ AC_SUBST(INDICATE_PYTHON_LIBS)
