@@ -33,7 +33,7 @@ BuildRequires:	pkgconfig(python) >= 2.3.5
 BuildRequires:	vala-tools
 BuildRequires:  gobject-introspection-devel
 BuildRequires:  gtk-doc
-BuildRequires:  gnome-doc-utils
+BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:	gnome-common
 BuildRequires:	intltool
 
@@ -220,3 +220,51 @@ NOCONFIGURE=yes gnome-autogen.sh
 %makeinstall_std
 
 rm -f %buildroot%_libdir/*.la
+
+%changelog
+* Mon May 02 2011 Oden Eriksson <oeriksson@mandriva.com> 0.4.4-2mdv2011.0
++ Revision: 661476
+- mass rebuild
+
+* Tue Jan 04 2011 John Balcaen <mikala@mandriva.org> 0.4.4-1mdv2011.0
++ Revision: 628534
+- Update to 0.4.4
+
+* Fri Nov 05 2010 Funda Wang <fwang@mandriva.org> 0.4.1-3mdv2011.0
++ Revision: 593684
+- disable introspection
+- rebuild for py2.7
+
+* Sun Aug 01 2010 Funda Wang <fwang@mandriva.org> 0.4.1-2mdv2011.0
++ Revision: 564214
+- correct packag ename of indicate-gtk
+- add requires on libpackage to mono bindings
+- BR libdbusmenu-tools
+- New version 0.4.1
+
+* Wed Mar 17 2010 John Balcaen <mikala@mandriva.org> 0.3.6-2mdv2010.1
++ Revision: 522709
+- Fix BuildRequires (missing libdbumenu-devel)
+- Update to 0.3.6
+- Update to 0.3.4
+- update major (now 4)
+- add buildrequires on libdbusmenu
+- cosmetic changes on spec
+
+* Thu Dec 31 2009 John Balcaen <mikala@mandriva.org> 0.2.3-3mdv2010.1
++ Revision: 484270
+- Split libindicate-devel in libindicate-devel & libindicate-gtk-devel
+
+* Mon Dec 14 2009 John Balcaen <mikala@mandriva.org> 0.2.3-2mdv2010.1
++ Revision: 478685
+- Add patch0 (disable build of examples & tests files)
+- add examples & tests folder in -doc package
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - fix layout
+
+* Wed Dec 09 2009 John Balcaen <mikala@mandriva.org> 0.2.3-1mdv2010.1
++ Revision: 475355
+- import libindicate
+
+
