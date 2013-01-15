@@ -9,7 +9,7 @@
 
 Name:           libindicate
 Version:        0.6.1
-Release:        %mkrel 3
+Release:        4
 Summary:        Library for applications to raise flags on DBus
 License:        LGPLv3
 Group:          System/Libraries
@@ -18,6 +18,7 @@ URL:            https://launchpad.net/libindicate
 Source0:        http://launchpad.net/%{name}/0.3/%{version}/+download/%{name}-%{version}.tar.gz
 Patch0:		libindicate-0.6.1-glib.patch
 Patch1:		libindicate-0.6.1-link.patch
+Patch2:		libindicate-automake-1.13.patch
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.76
 BuildRequires:	pkgconfig(dbusmenu-glib-0.4) >= 0.3.97
 BuildRequires:	pkgconfig(gapi-2.0) >= 2.12.1
@@ -210,6 +211,7 @@ This package provides documentation files for %{name}
 %setup -q
 %patch0 -p0
 %patch1 -p0
+%patch2 -p1 -b .am113~
 
 %build
 NOCONFIGURE=yes gnome-autogen.sh

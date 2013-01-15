@@ -1,0 +1,13 @@
+--- libindicate-0.6.1/configure.ac.bero	2013-01-15 23:43:10.541667551 +0100
++++ libindicate-0.6.1/configure.ac	2013-01-15 23:43:25.964482463 +0100
+@@ -3,8 +3,8 @@ AC_INIT(libindicate, 0.6.1, ted@canonica
+ 
+ AC_PREREQ(2.53)
+ 
+-AM_CONFIG_HEADER(config.h)
+-AM_INIT_AUTOMAKE(libindicate, 0.6.1)
++AC_CONFIG_HEADERS([config.h])
++AM_INIT_AUTOMAKE
+ 
+ AM_MAINTAINER_MODE
+ m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
