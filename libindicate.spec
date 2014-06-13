@@ -12,7 +12,7 @@
 Summary:	Library for applications to raise flags on DBus
 Name:		libindicate
 Version:	0.6.1
-Release:	9
+Release:	10
 License:	LGPLv3
 Group:		System/Libraries
 Url:		https://launchpad.net/libindicate
