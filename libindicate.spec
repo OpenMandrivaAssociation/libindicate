@@ -150,7 +150,6 @@ NOCONFIGURE=yes gnome-autogen.sh
 %build
 export CC=gcc
 export CXX=g++
-export LDFLAGS="$LDFLAGS -lm -lpyglib-2.0-python"
 
 %configure2_5x --disable-static
 %make
