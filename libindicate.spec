@@ -1,3 +1,5 @@
+%global LDFLAGS="$LDFLAGS -lpyglib-2.0-python"
+
 %define api	0.6
 %define major	5
 %define libname %mklibname indicate %{major}
