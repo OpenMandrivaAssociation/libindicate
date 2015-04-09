@@ -39,6 +39,7 @@ BuildRequires:	pkgconfig(gtk-sharp-2.0) >= 2.12
 BuildRequires:	pkgconfig(pygobject-2.0) >= 0.22
 BuildRequires:	pkgconfig(pygtk-2.0) >= 2.14.0
 BuildRequires:	pkgconfig(python) >= 2.3.5
+BuildRequires: gcc-c++, gcc, gcc-cpp
 
 %description
 A small library for applications to raise "flags" on DBus for other
@@ -147,6 +148,9 @@ This package provides documentation files for %{name}
 NOCONFIGURE=yes gnome-autogen.sh
 
 %build
+export CC=gcc
+export CXX=g++
+
 %configure2_5x --disable-static
 %make
 
