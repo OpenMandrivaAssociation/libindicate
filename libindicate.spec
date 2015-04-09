@@ -64,9 +64,9 @@ GObject Introspection interface description for libindicate-gtk.
 %package -n     %{devname}
 Summary:	Library headers for %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Requires:	%{girname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n	%{devname}
 This is the libraries, include files and other resources you can use
@@ -92,9 +92,9 @@ GObject Introspection interface description for libindicate-gtk.
 %package -n     %{devgtk3}
 Summary:	Library headers for %{name}
 Group:		Development/C
-Requires:	%{libgtk3} = %{version}-%{release}
-Requires:	%{girgtk3} = %{version}-%{release}
-Provides:	%{name}-gtk3-devel = %{version}-%{release}
+Requires:	%{libgtk3} = %{EVRD}
+Requires:	%{girgtk3} = %{EVRD}
+Provides:	%{name}-gtk3-devel = %{EVRD}
 Obsoletes:	%{_lib}indicate-gtk-devel < 0.6.1-5
 
 %description -n %{devgtk3}
@@ -105,8 +105,8 @@ to incorporate %{name} into applications.
 %package -n     indicate-sharp
 Summary:	Library for applications to raise flags on DBus
 Group:		Development/Other
-Provides:	mono-%{name} = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
+Provides:	mono-%{name} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 
 %description -n indicate-sharp
 A small library for applications to raise "flags" on DBus for other
@@ -116,8 +116,8 @@ the messaging indicator.
 %package -n     indicate-gtk-sharp
 Summary:	Library for applications to raise flags on DBus
 Group:		Development/Other
-Provides:	mono-%{name}-gtk = %{version}-%{release}
-Requires:	%{libgtk3} = %{version}-%{release}
+Provides:	mono-%{name}-gtk = %{EVRD}
+Requires:	%{libgtk3} = %{EVRD}
 
 %description -n	indicate-gtk-sharp
 A small library for applications to raise "flags" on DBus for other
