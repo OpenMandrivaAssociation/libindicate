@@ -1,4 +1,8 @@
-%global LDFLAGS="$LDFLAGS -lpyglib-2.0-python"
+# As soon as EVRD macro really works I won't disable linting.Sflo:
+# lib64indicate-devel.x86_64: E: no-dependency-on (Badness: 1) lib64indicate-devel/lib64indicate-devel-libs/liblib64indicate-devel
+# lib64indicate-gtk3-devel.x86_64: E: no-dependency-on (Badness: 1) lib64indicate-gtk3-devel/lib64indicate-gtk3-devel-libs/liblib64indicate-gtk3-devel
+
+%define _build_pkgcheck_set %{nil}
 
 %define api	0.6
 %define major	5
@@ -40,7 +44,7 @@ BuildRequires:	pkgconfig(gtk-sharp-2.0) >= 2.12
 #BuildRequires:	pkgconfig(mono) >= 1.0
 BuildRequires:	pkgconfig(pygobject-2.0) >= 0.22
 BuildRequires:	pkgconfig(pygtk-2.0) >= 2.14.0
-BuildRequires:	pkgconfig(python) >= 2.3.5
+BuildRequires:	pkgconfig(python2) >= 2.3.5
 BuildRequires: gcc-c++, gcc, gcc-cpp
 
 %description
@@ -152,6 +156,7 @@ NOCONFIGURE=yes gnome-autogen.sh
 %build
 export CC=gcc
 export CXX=g++
+perl -pi -e "s|-lpyglib-2.0-python|-lpyglib-2.0-python2|" configure
 
 %configure2_5x --disable-static
 %make
@@ -200,7 +205,7 @@ export CXX=g++
 %endif
 
 %files -n       python-%{name}
-%{py_platsitedir}/indicate
+%{py2_platsitedir}/indicate
 %{_datadir}/pygtk/2.0/defs/indicate.defs
 
 %files doc
