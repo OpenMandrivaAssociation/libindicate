@@ -150,7 +150,7 @@ This package provides documentation files for %{name}
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 NOCONFIGURE=yes gnome-autogen.sh
 
 %build
