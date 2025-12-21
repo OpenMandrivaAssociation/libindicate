@@ -27,6 +27,11 @@ Patch0:		libindicate-0.6.1-glib.patch
 Patch1:		libindicate-0.6.1-link.patch
 Patch2:		libindicate-automake-1.13.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
 BuildRequires:	intltool
